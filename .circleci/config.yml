@@ -3,9 +3,11 @@ version: 2.1
 # Orchestrate or schedule a set of jobs
 jobs:
   build:
+    machine:
+      image: ubuntu-2004:202101-01
     resource_class: arm.medium
-    docker:
-      - image: cimg/rust:1.54.0
     steps:
       - checkout
+      - run:
+         command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
       - run: cargo build
