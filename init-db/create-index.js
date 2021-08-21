@@ -1,0 +1,1 @@
+db.potentialCandidates.createIndex({ firstName: 1, lastName: 1 }, { unique: true })

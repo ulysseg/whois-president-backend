@@ -1,0 +1,13 @@
+{
+  "fr": "whois.nic.fr",
+  "info": "whois.afilias.net",
+  "org": "whois.pir.org",
+
+  "": "whois.ripe.net",
+  "_": {
+    "ip": {
+      "host": "whois.arin.net",
+      "query": "n + $addr\r\n"
+    }
+  }
+}

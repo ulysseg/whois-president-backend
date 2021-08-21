@@ -1,0 +1,385 @@
+[
+  {
+    "firstName": "Nathalie",
+    "lastName": "Arthaud",
+    "party": "LO",
+    "declared": true,
+    "domainNames": [
+      {
+        "name": "nathalie-arthaud.info",
+        "official": true
+      }
+    ]
+  },
+  {
+    "firstName": "Philippe",
+    "lastName": "Poutou",
+    "party": "NPA",
+    "declared": true,
+    "domainNames": []
+  },
+  {
+    "firstName": "Fabien",
+    "lastName": "Roussel",
+    "party": "PCF",
+    "declared": true,
+    "domainNames": [
+      {
+        "name": "fabienroussel2022.fr",
+        "official": true
+      }
+    ]
+  },
+  {
+    "firstName": "Jean-Luc",
+    "lastName": "Mélenchon",
+    "party": "LFI",
+    "declared": true,
+    "domainNames": [
+      {
+        "name": "jlm2022.fr"
+      }
+    ]
+  },
+  {
+    "firstName": "Cécile",
+    "lastName": "Duflot",
+    "party": "EELV",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Yannick",
+    "lastName": "Jadot",
+    "party": "EELV",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Anne",
+    "lastName": "Hidalgo",
+    "party": "PS",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Arnaud",
+    "lastName": "Montebourg",
+    "party": "PS",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "François",
+    "lastName": "Hollande",
+    "party": "PS",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Lionel",
+    "lastName": "Jospin",
+    "party": "PS",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Najat",
+    "lastName": "Vallaud-Belkacem",
+    "party": "PS",
+    "declared": false,
+    "domainNames": [
+      {
+        "name": "nvb2022.fr"
+      }
+    ]
+  },
+  {
+    "firstName": "Olivier",
+    "lastName": "Faure",
+    "party": "PS",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Ségolène",
+    "lastName": "Royal",
+    "party": "PS",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Benoît",
+    "lastName": "Hamon",
+    "party": "GS",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Christophe",
+    "lastName": "Castaner",
+    "party": "LREM",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Emmanuel",
+    "lastName": "Macron",
+    "party": "LREM",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Gabriel",
+    "lastName": "Attal",
+    "party": "LREM",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Marlène",
+    "lastName": "Schiappa",
+    "party": "LREM",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "François",
+    "lastName": "Bayrou",
+    "party": "MODEM",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Bruno",
+    "lastName": "Le Maire",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Bruno",
+    "lastName": "Retailleau",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Christian",
+    "lastName": "Jacob",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Édouard",
+    "lastName": "Philippe",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "François",
+    "lastName": "Baroin",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "François",
+    "lastName": "Fillon",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Gérald",
+    "lastName": "Darmanin",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Gérard",
+    "lastName": "Larcher",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Jean-François",
+    "lastName": "Copé",
+    "party": "LR",
+    "declared": false,
+    "domainNames": [
+      {
+        "name": "jfc2022.fr"
+      }
+    ]
+  },
+  {
+    "firstName": "Laurent",
+    "lastName": "Wauquiez",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Michel",
+    "lastName": "Barnier",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Michèle",
+    "lastName": "Alliot-Marie",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Nathalie",
+    "lastName": "Kosciusko-Morizet",
+    "party": "LR",
+    "declared": false,
+    "domainNames": [
+      {
+        "name": "nkm2022.fr"
+      }
+    ]
+  },
+  {
+    "firstName": "Nicolas",
+    "lastName": "Sarkozy",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Patrick",
+    "lastName": "Balkany",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Rachida",
+    "lastName": "Dati",
+    "party": "LR",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Valérie",
+    "lastName": "Pécresse",
+    "party": "LR",
+    "declared": true,
+    "domainNames": []
+  },
+  {
+    "firstName": "Jean-Frédéric",
+    "lastName": "Poisson",
+    "party": "VIA",
+    "declared": true,
+    "domainNames": []
+  },
+  {
+    "firstName": "Nicolas",
+    "lastName": "Dupont-Aignan",
+    "party": "DLF",
+    "declared": true,
+    "domainNames": []
+  },
+  {
+    "firstName": "Marine",
+    "lastName": "Le Pen",
+    "party": "RN",
+    "declared": true,
+    "domainNames": []
+  },
+  {
+    "firstName": "Marion",
+    "lastName": "Maréchal",
+    "party": "RN",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Florian",
+    "lastName": "Philippot",
+    "party": "LP",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "François",
+    "lastName": "Asselineau",
+    "party": "UPR",
+    "declared": true,
+    "domainNames": []
+  },
+  {
+    "firstName": "Éric",
+    "lastName": "Dupond-Moretti",
+    "party": "I",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Éric",
+    "lastName": "Zemmour",
+    "party": "I",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Jean",
+    "lastName": "Castex",
+    "party": "I",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Jean",
+    "lastName": "Lassalle",
+    "party": "RST",
+    "declared": true,
+    "domainNames": []
+  },
+  {
+    "firstName": "Jean-Marie",
+    "lastName": "Bigard",
+    "party": "I",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Jean-Yves",
+    "lastName": "Le Drian",
+    "party": "I",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Manuel",
+    "lastName": "Valls",
+    "party": "I",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Roselyne",
+    "lastName": "Bachelot",
+    "party": "I",
+    "declared": false,
+    "domainNames": []
+  },
+  {
+    "firstName": "Xavier",
+    "lastName": "Bertrand",
+    "party": "I",
+    "declared": true,
+    "domainNames": []
+  }
+]

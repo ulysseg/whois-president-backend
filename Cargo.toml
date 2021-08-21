@@ -1,0 +1,11 @@
+[workspace]
+
+members = [
+#    "afnic-parser",
+#    "afilias-parser",
+    "generate-domains",
+    "lookup",
+    "mongo-model",
+    "rest-api",
+    "whois-response-parser",
+]

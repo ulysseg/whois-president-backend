@@ -1,0 +1,7 @@
+/target
+Cargo.lock
+
+.idea
+
+afilias-parser
+afnic-parser
