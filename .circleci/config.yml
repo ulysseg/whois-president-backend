@@ -11,3 +11,10 @@ jobs:
       - run:
          command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
       - run: cargo build --release
+      - store_artifacts:
+          path: target/release/generate-domains
+      - store_artifacts:
+          path: target/release/lookup
+      - store_artifacts:
+          path: target/release/rest-api
+
