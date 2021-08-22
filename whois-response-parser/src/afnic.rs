@@ -67,14 +67,14 @@ mod tests {
 
     #[test]
     fn test_no_entries() {
-        let response = std::fs::read_to_string("./responses/no_entries.txt").unwrap();
+        let response = std::fs::read_to_string("./responses/afnic/no_entries.txt").unwrap();
         let response = afnic::parse_afnic_response(&response).unwrap();
         assert!(response.is_none());
     }
 
     #[test]
     fn too_many_requests() {
-        let response = std::fs::read_to_string("./responses/too_many_requests.txt").unwrap();
+        let response = std::fs::read_to_string("./responses/afnic/too_many_requests.txt").unwrap();
         let response = afnic::parse_afnic_response(&response);
         assert!(response.is_err());
     }
