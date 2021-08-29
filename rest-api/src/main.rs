@@ -1,37 +1,9 @@
-use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
-use futures_util::stream::TryStreamExt;
-use mongo_model::PotentialCandidate;
-use mongodb::bson::{doc, Document};
-use mongodb::{Client, Database};
 use std::env;
 
-#[get("/parties")]
-async fn get_parties(db: web::Data<Database>) -> impl Responder {
-    let coll = db.collection::<PotentialCandidate>("potentialCandidates");
-    let pipeline = vec![
-        doc! {
-            "$sort": { "firstName": 1 }
-        },
-        doc! {
-            "$group": {
-                "_id": "$party",
-                "candidates": { "$push": "$$ROOT"}
-            }
-        },
-        doc! {
-            "$project": {
-                  "_id": 0,
-                  "party": "$_id",
-                  "candidates": "$candidates"
-               }
-        }
-    ];
+use actix_web::{App, HttpServer, web};
+use mongodb::Client;
 
-    let x = coll.aggregate(pipeline, None).await.unwrap();
-    let x: Vec<Document> = x.try_collect().await.unwrap();
-
-    HttpResponse::Ok().json(x)
-}
+use rest_api::services;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -42,7 +14,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .app_data(web::Data::new(db.clone()))
             .service(web::scope("/api/v1")
-                .service(get_parties)
+                .service(services::get_parties)
             )
     })
         .bind(env::var("BIND_ADDRESS").unwrap_or(String::from("127.0.0.1:8080")))?
