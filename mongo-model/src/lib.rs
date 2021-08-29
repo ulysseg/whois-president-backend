@@ -16,8 +16,17 @@ pub struct PotentialCandidate {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct DomainName {
     pub name: String,
+    pub whois_lookup: Option<WhoisLookup>,
+}
+
+impl DomainName {
+
+    pub fn has_whois_data(&self) -> bool {
+        self.whois_lookup.as_ref().and_then(|l| l.whois_data.as_ref()).is_some()
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]

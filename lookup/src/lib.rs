@@ -10,15 +10,14 @@ use whois_rust::{WhoIs, WhoIsLookupOptions};
 use crate::fib::FibonacciSequence;
 use whois_response_parser::{WhoisData, WhoisError};
 
-// interro, tempo si nec, retry
 pub async fn perform() {
     let persons_collection = get_collection().await;
-    let mut domains_to_lookup = find_domains_to_lookup(&persons_collection).await;
+    let mut candidates_to_lookup = find_candidates_to_lookup(&persons_collection).await;
     let whois_servers = env::var("WHOIS_SERVERS_FILE").unwrap_or(String::from("servers.json"));
     let whois = WhoIs::from_path(whois_servers).unwrap();
     let mut fib = FibonacciSequence::new();
 
-    while let Some(candidate) = domains_to_lookup.try_next().await.unwrap() {
+    while let Some(candidate) = candidates_to_lookup.try_next().await.unwrap() {
         process_person(&whois, &mut fib, candidate, &persons_collection).await;
     }
 }
@@ -31,9 +30,9 @@ async fn get_collection() -> Collection<PotentialCandidate> {
 }
 
 /// Find candidates with domains names without whois data
-async fn find_domains_to_lookup(persons_collection: &Collection<PotentialCandidate>) -> Cursor<PotentialCandidate> {
+async fn find_candidates_to_lookup(persons_collection: &Collection<PotentialCandidate>) -> Cursor<PotentialCandidate> {
     let filter = doc! {
-        "domainNames": { "$elemMatch": { "whoisLookup.entries": { "$exists": false }}},
+        "domainNames.whoisLookup.whoisData": "null",
         "enableLookup": { "$ne": false }
     };
     persons_collection.find(filter, None).await.unwrap()
@@ -42,25 +41,27 @@ async fn find_domains_to_lookup(persons_collection: &Collection<PotentialCandida
 async fn process_person(whois: &WhoIs, fib: &mut FibonacciSequence, person: PotentialCandidate,
                   persons_collection: &Collection<PotentialCandidate>) {
     for domain_name in person.domain_names {
-        loop {
-            // Start by sleeping because of the break below
-            log::debug!("Waiting {} seconds...", fib.current());
-            thread::sleep(time::Duration::from_secs(fib.current()));
-            match lookup_domain_name(&whois, &domain_name.name) {
-                Ok(entries) => {
-                    log::info!("Response OK");
-                    update_person(person.id, &domain_name.name, entries,
-                                  persons_collection).await;
-                    fib.previous();
-                    break;
-                },
-                Err(WhoisError::TooManyRequests) => {
-                    log::warn!("Too many requests, slowing down...");
-                    fib.next();
-                },
-                Err(e) => {
-                    log::error!("Could not lookup {} : {:?}", &domain_name.name, e);
-                    break;
+        if domain_name.has_whois_data() {
+            loop {
+                // Start by sleeping because of the break below
+                log::debug!("Waiting {} seconds...", fib.current());
+                thread::sleep(time::Duration::from_secs(fib.current()));
+                match lookup_domain_name(&whois, &domain_name.name) {
+                    Ok(entries) => {
+                        log::info!("Response OK");
+                        update_person(person.id, &domain_name.name, entries,
+                                      persons_collection).await;
+                        fib.previous();
+                        break;
+                    },
+                    Err(WhoisError::TooManyRequests) => {
+                        log::warn!("Too many requests, slowing down...");
+                        fib.next();
+                    },
+                    Err(e) => {
+                        log::error!("Could not lookup {} : {:?}", &domain_name.name, e);
+                        break;
+                    }
                 }
             }
         }
