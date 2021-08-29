@@ -5,6 +5,7 @@ use mongodb::{Client, Collection};
 use regex::{Regex, Replacer};
 use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
+use std::error::Error;
 
 // TODO initials if long enough or 3 words, ex nkm2022.fr
 
@@ -88,7 +89,7 @@ async fn get_collection() -> Collection<PotentialCandidateDocument> {
     database.collection("potentialCandidates")
 }
 
-pub async fn update_candidates_with_generated_domains() {
+pub async fn update_candidates_with_generated_domains() -> Result<(), Box<dyn Error>> {
     let coll = get_collection().await;
     // To find candidates without an official domain name
     let filter = doc! { "domainNames.official": { "$ne": true } };
@@ -104,9 +105,10 @@ pub async fn update_candidates_with_generated_domains() {
             let query = doc! { "_id": candidate.id };
             let x = bson::to_bson(&x).unwrap();
             let update = doc! { "$push": { "domainNames": { "$each": x } }};
-            coll.update_one(query, update, None).await;
+            coll.update_one(query, update, None).await?;
         }
     }
+    Ok(())
 }
 
 #[cfg(test)]

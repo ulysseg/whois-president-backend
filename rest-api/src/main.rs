@@ -1,11 +1,9 @@
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
 use futures_util::stream::TryStreamExt;
 use mongo_model::PotentialCandidate;
 use mongodb::bson::{doc, Document};
-use mongodb::{Client, options::ClientOptions, Database, Collection};
-use serde::{Serialize, Deserialize};
+use mongodb::{Client, Database};
 use std::env;
-use futures_util::StreamExt;
 
 #[get("/parties")]
 async fn get_parties(db: web::Data<Database>) -> impl Responder {

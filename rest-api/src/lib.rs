@@ -1,2 +1,1 @@
-mod resources;
 mod services;
