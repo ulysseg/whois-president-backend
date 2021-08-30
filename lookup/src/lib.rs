@@ -31,7 +31,7 @@ async fn get_candidates_collection() -> Collection<PotentialCandidate> {
 /// Find candidates with domains names without whois data
 async fn find_candidates_to_lookup(persons_collection: &Collection<PotentialCandidate>) -> Cursor<PotentialCandidate> {
     let filter = doc! {
-        "domainNames.whoisLookup.whoisData": "null",
+        "domainNames.whoisLookup.whoisData": bson::Bson::Null,
         "enableLookup": { "$ne": false }
     };
     persons_collection.find(filter, None).await.unwrap()
@@ -45,7 +45,7 @@ fn create_whois() -> WhoIs {
 async fn lookup_candidate_domains(whois: &WhoIs, fib: &mut FibonacciSequence, candidate: PotentialCandidate,
                                   candidates_collection: &Collection<PotentialCandidate>) {
     for domain_name in candidate.domain_names {
-        if domain_name.has_whois_data() {
+        if !domain_name.has_whois_data() {
             loop {
                 // Start by sleeping because of the break below
                 log::debug!("Waiting {} seconds...", fib.current());
